@@ -3,6 +3,7 @@ import { Linkedin } from 'lucide-react';
 import { StratonLogo } from '../components/Icons';
 import { CTASectionContent } from '../components/CTASection';
 import { FrameContainer, FrameData } from '../components/FrameContainer';
+import { BlurHeading, RiseCard } from '../components/AnimatedComponents';
 
 export const About = () => {
   const frames: FrameData[] = [
@@ -23,11 +24,11 @@ export const About = () => {
             <div className="absolute bottom-0 left-0 w-6 h-6 border-b-[1.5px] border-l-[1.5px] border-brand-orange"></div>
             <div className="absolute bottom-0 right-0 w-6 h-6 border-b-[1.5px] border-r-[1.5px] border-brand-orange"></div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-brand-orange leading-[1.3] tracking-tight">
+            <BlurHeading as="h1" className="text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-brand-orange leading-[1.3] tracking-tight">
               Straton AI is a business-driven, AI-first transformation partner for financial institutions.
               <br /><br />
               We dig deep into the business problem and use AI solutions at speed with purpose to deliver business value.
-            </h1>
+            </BlurHeading>
           </div>
         </>
       )
@@ -37,7 +38,7 @@ export const About = () => {
       className: 'bg-[#1A0905] p-12 md:p-16',
       content: (
         <>
-          <h2 className="text-white text-3xl md:text-4xl font-medium tracking-tight mb-12">How we work</h2>
+          <BlurHeading className="text-white text-3xl md:text-4xl font-medium tracking-tight mb-12">How we work</BlurHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[22.8px]">
             {[
               {
@@ -61,7 +62,7 @@ export const About = () => {
                 image: "https://www.dropbox.com/scl/fi/tz40nnj2gi9cwyabhamze/693ffc4b8702afc0fa1c9784_Engineering.svg?rlkey=qqlz9q6kr4it0vlcuwozizlt4&st=3fd3h4hn&raw=1"
               }
             ].map((card, i) => (
-              <div key={i} className="bg-[#6B46C1] rounded-[18px] p-8 relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300">
+              <RiseCard key={i} delay={i * 0.1} className="bg-[#6B46C1] rounded-[18px] p-8 relative overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 h-full">
                 <div className="absolute inset-3 border border-dashed border-brand-orange/40 rounded-[10px] pointer-events-none"></div>
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="w-full h-32 flex items-center justify-center mb-4">
@@ -79,7 +80,7 @@ export const About = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </RiseCard>
             ))}
           </div>
         </>
@@ -90,7 +91,7 @@ export const About = () => {
       className: 'bg-[#1A0905] p-12 md:p-16',
       content: (
         <div className="flex flex-col lg:flex-row gap-[30.4px] lg:gap-[45.6px] items-start">
-          <div className="w-full lg:w-1/2 bg-[#F3F3F3] rounded-[20px] overflow-hidden flex flex-col sm:flex-row">
+          <RiseCard className="w-full lg:w-1/2 bg-[#F3F3F3] rounded-[20px] overflow-hidden flex flex-col sm:flex-row">
             <div className="sm:w-2/5 relative">
               <img 
                 src="https://www.dropbox.com/scl/fi/p9ona9htpr2c6qft8h6er/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign_53876-129417.avif?rlkey=jmiavk7q9b7q0tw16f6i630uu&st=a6spdapx&raw=1" 
@@ -113,9 +114,9 @@ export const About = () => {
                 <p className="italic text-[#6E6E6E]">Beyond work, you will likely find Himanshu with a suitcase somewhere in the world. He also unwinds with a deep love for Bollywood music and movies.</p>
               </div>
             </div>
-          </div>
+          </RiseCard>
 
-          <div className="w-full lg:w-1/2 bg-[#F3F3F3] rounded-[20px] overflow-hidden flex flex-col sm:flex-row lg:mt-24">
+          <RiseCard delay={0.2} className="w-full lg:w-1/2 bg-[#F3F3F3] rounded-[20px] overflow-hidden flex flex-col sm:flex-row lg:mt-24">
             <div className="sm:w-2/5 relative">
               <img 
                 src="https://www.dropbox.com/scl/fi/3wez06uak7tih1n3xtv4j/closeup-young-hispanic-man-casuals-studio_662251-600.avif?rlkey=fnwv4h9q1dkdrqfw02dzef0ra&st=lageajxl&raw=1" 
@@ -138,7 +139,7 @@ export const About = () => {
                 <p className="italic text-[#6E6E6E]">Outside work, he's learning to code with AI, loves dancing, and binges spy thrillers. He proudly counts getting Mr. Ratan Tata's autograph among his most prized memories.</p>
               </div>
             </div>
-          </div>
+          </RiseCard>
         </div>
       )
     },
@@ -154,7 +155,7 @@ export const About = () => {
             <StratonLogo className="w-8 h-8" />
             <span className="text-2xl font-bold tracking-tight text-[#111111]">straton</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-12 text-[#111111]">Founders' Letter</h2>
+          <BlurHeading className="text-4xl md:text-5xl font-medium tracking-tight mb-12 text-[#111111]">Founders' Letter</BlurHeading>
           <div className="space-y-[30.4px] text-lg md:text-xl text-[#111111] font-light leading-relaxed max-w-3xl">
             <p>BFSI teams deserve AI they can finally trust.</p>
             <p>We've watched institutions invest millions into AI projects that never made it out of a sandbox.</p>
@@ -183,7 +184,7 @@ export const About = () => {
       className: 'bg-[#1A0905] p-12 md:p-16',
       content: (
         <>
-          <h2 className="text-white text-3xl md:text-4xl font-medium tracking-tight mb-12">Built for reality</h2>
+          <BlurHeading className="text-white text-3xl md:text-4xl font-medium tracking-tight mb-12">Built for reality</BlurHeading>
           <div className="flex flex-col lg:flex-row rounded-[20px] overflow-hidden border border-white/10">
             <div className="w-full lg:w-1/2 bg-[#1A0905] p-10 md:p-16 border-b lg:border-b-0 lg:border-r border-white/10">
               <h3 className="text-white/80 text-xs tracking-widest uppercase font-semibold mb-10">CURRENT STATE</h3>

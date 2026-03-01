@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from '../components/Icons';
 import { CardCube } from '../components/IsometricCubes';
 import { CTASectionContent } from '../components/CTASection';
 import { FrameContainer, FrameData } from '../components/FrameContainer';
+import { BlurHeading, RiseCard, StaggeredText, ScrollFillText } from '../components/AnimatedComponents';
 
 interface BfsiFeature {
   title: string;
@@ -86,28 +87,32 @@ export const Home = () => {
   const frames: FrameData[] = [
     {
       id: 'hero',
-      className: 'relative bg-[#1A0905] min-h-[600px] flex items-stretch overflow-hidden',
+      className: 'relative bg-[#1A0905] min-h-[calc(100vh-100px)] flex items-stretch overflow-hidden',
       content: (
         <>
           <div className="absolute inset-0 bg-dotted-grid opacity-20 z-0"></div>
-          <div className="relative z-10 w-full flex flex-col lg:flex-row">
-            <div className="lg:w-[55%] p-12 md:p-20 flex flex-col justify-center">
-              <h1 className="text-5xl md:text-6xl lg:text-[5rem] font-medium text-white leading-[1.05] tracking-tight">
+          <div className="relative z-10 w-full flex flex-col lg:flex-row p-4 gap-4">
+            <div className="lg:w-[55%] p-8 md:p-16 flex flex-col justify-center">
+              <BlurHeading as="h1" className="text-5xl md:text-6xl lg:text-[5rem] font-medium text-white leading-[1.05] tracking-tight">
                 Production-ready<br />
                 AI Solutions<br />
                 for BFSI.
-              </h1>
+              </BlurHeading>
             </div>
             
-            <div className="lg:w-[45%] relative min-h-[400px] lg:min-h-full flex items-center justify-center overflow-hidden">
-              <img 
-                src="https://www.dropbox.com/scl/fi/a7cm1eaws9t5pesc1vr5l/Screenshot-2026-02-28-235957.webp?rlkey=4y2hiulv2opkk3ay7udzy16a7&st=ajh63lcu&raw=1" 
-                alt="Hero Visual" 
+            <div className="lg:w-[45%] relative min-h-[400px] lg:min-h-full flex items-center justify-center overflow-hidden rounded-[20px]">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
                 className="absolute inset-0 w-full h-full object-cover z-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1A0905] via-transparent to-transparent z-10"></div>
-              <div className="absolute top-1/4 right-1/4 z-20">
-                <p className="text-brand-orange font-medium tracking-widest uppercase text-sm bg-[#1A0905]/60 backdrop-blur-sm px-3 py-1 rounded">NOT JUST PROTOTYPES.</p>
+              >
+                <source src="https://www.dropbox.com/scl/fi/i3700pcvdg4pmg1g7u2lr/Video-Project-1.mp4?rlkey=c2eppug5cfxk3bk0g2ze3yx8t&st=r4v145z4&raw=1" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1A0905]/80 via-transparent to-transparent z-10"></div>
+              <div className="absolute top-8 right-8 z-20">
+                <p className="text-brand-orange font-medium tracking-widest uppercase text-sm bg-[#1A0905]/60 backdrop-blur-sm px-4 py-2 rounded-md border border-white/10">NOT JUST PROTOTYPES.</p>
               </div>
             </div>
           </div>
@@ -120,9 +125,9 @@ export const Home = () => {
       content: (
         <>
           <div className="lg:w-1/2 p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-white/10 relative z-10 bg-[#1A0905] flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-medium text-white mb-6 leading-[1.2]">
+            <BlurHeading className="text-3xl md:text-4xl font-medium text-white mb-6 leading-[1.2]">
               We build AI that understands the nuances of Banking, Financial Services, and Insurance.
-            </h2>
+            </BlurHeading>
             
             <p className="text-white/70 mb-12 text-sm md:text-base leading-relaxed max-w-lg">
               Our domain-specific models are trained on industry data to ensure compliance, enhance customer journeys, and streamline complex operations from day one.
@@ -184,32 +189,33 @@ export const Home = () => {
     },
     {
       id: 'value-prop',
-      className: 'bg-[#1A0905] flex flex-col lg:flex-row',
+      className: 'relative bg-[#1A0905] flex flex-col lg:flex-row overflow-hidden',
       content: (
         <>
-          <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10">
-            <h2 className="text-4xl md:text-5xl font-medium text-white leading-[1.1] tracking-tight mb-8">
+          <div className="absolute inset-0 bg-reference-grid z-0 pointer-events-none opacity-50"></div>
+          <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 relative z-10">
+            <BlurHeading className="text-4xl md:text-5xl font-medium text-white leading-[1.1] tracking-tight mb-8">
               Measurable impact.<br />
               Not just metrics.
-            </h2>
+            </BlurHeading>
             <p className="text-white/70 text-lg leading-relaxed max-w-md">
               Our solutions are designed to integrate seamlessly with your existing infrastructure, delivering rapid ROI and sustainable growth.
             </p>
           </div>
           
-          <div className="lg:w-1/2 p-8 md:p-12 bg-[#2A0F08] flex flex-col gap-[22.8px]">
+          <div className="lg:w-1/2 p-8 md:p-12 bg-[#2A0F08]/80 backdrop-blur-sm flex flex-col gap-[22.8px] relative z-10">
             {[
               { metric: "40%", label: "Reduction in processing time" },
               { metric: "2.5x", label: "Increase in lead qualification" },
               { metric: "99.9%", label: "Uptime and reliability" }
             ].map((stat, i) => (
-              <div key={i} className="bg-[#1A0905] border border-brand-orange/30 rounded-[20px] p-8 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+              <RiseCard key={i} delay={i * 0.15} className="bg-[#1A0905] border border-brand-orange/30 rounded-[20px] p-8 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
                 <CardCube />
                 <div className="relative z-10">
                   <h3 className="text-5xl font-bold text-brand-orange mb-2">{stat.metric}</h3>
                   <p className="text-white/80 font-medium tracking-wide">{stat.label}</p>
                 </div>
-              </div>
+              </RiseCard>
             ))}
           </div>
         </>
@@ -228,10 +234,10 @@ export const Home = () => {
           <div className="absolute inset-0 bg-dotted-grid opacity-40 mix-blend-overlay z-0"></div>
           <div className="relative z-10 flex flex-col lg:flex-row gap-[60.8px] lg:gap-[91.2px] items-start">
             <div className="flex-1 relative">
-              <h2 className="text-6xl md:text-7xl lg:text-[5.5rem] font-medium tracking-tight leading-[1.05]">
-                Good enough isn't<br />
-                good enough anymore.
-              </h2>
+              <StaggeredText 
+                text="Good enough isn't\ngood enough anymore." 
+                className="text-6xl md:text-7xl lg:text-[5.5rem] font-medium tracking-tight leading-[1.05]"
+              />
               <div className="absolute -bottom-12 left-0 w-8 h-8 border-b-[1.5px] border-l-[1.5px] border-white/80"></div>
             </div>
             
@@ -248,64 +254,64 @@ export const Home = () => {
     },
     {
       id: 'opportunities',
-      className: 'bg-[#1A0905] text-white p-12 md:p-20',
+      className: 'relative bg-[#1A0905] text-white p-12 md:p-20 overflow-hidden',
       content: (
         <>
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-16 max-w-2xl leading-[1.2]">
+          <div className="absolute inset-0 bg-reference-grid z-0 pointer-events-none opacity-50"></div>
+          <BlurHeading className="text-3xl md:text-4xl font-medium tracking-tight mb-16 max-w-2xl leading-[1.2] relative z-10">
             Opportunities we identified<br />
             and solved already using AI.
-          </h2>
+          </BlurHeading>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[22.8px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[22.8px] relative z-10">
             {opportunitiesData.map((opp, i) => (
-              <div 
-                key={i} 
-                className="relative bg-[#2A0F08] border border-[#FF4D2E]/20 rounded-[18px] flex flex-col min-h-[420px] hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,77,46,0.15)] transition-all duration-300 cursor-pointer group overflow-hidden"
-              >
-                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10 transition-opacity duration-300 group-hover:opacity-0">
-                  <h3 className="text-sm tracking-widest uppercase font-semibold text-white/90 leading-relaxed">
-                    {opp.title}
-                  </h3>
-                  
-                  <div className="mt-auto flex justify-center w-full">
-                    <div className="relative px-6 py-3 text-[10px] tracking-[0.2em] uppercase text-white/50 transition-colors">
-                      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-orange"></div>
-                      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-orange"></div>
-                      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand-orange"></div>
-                      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-orange"></div>
-                      HOVER TO KNOW MORE
+              <RiseCard key={i} delay={i * 0.1}>
+                <div className="relative bg-[#2A0F08] border border-[#FF4D2E]/20 rounded-[18px] flex flex-col min-h-[420px] hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,77,46,0.15)] transition-all duration-300 cursor-pointer group overflow-hidden h-full">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-between z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    <h3 className="text-sm tracking-widest uppercase font-semibold text-white/90 leading-relaxed">
+                      {opp.title}
+                    </h3>
+                    
+                    <div className="mt-auto flex justify-center w-full">
+                      <div className="relative px-6 py-3 text-[10px] tracking-[0.2em] uppercase text-white/50 transition-colors">
+                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-orange"></div>
+                        <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-orange"></div>
+                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand-orange"></div>
+                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-orange"></div>
+                        HOVER TO KNOW MORE
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 w-full bg-[#FF4D2E] z-20 h-0 transition-[height] duration-[350ms] ease-in group-hover:h-full group-hover:duration-[450ms] group-hover:ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[height]"></div>
+
+                  <div className="absolute inset-0 p-8 flex flex-col z-30 pointer-events-none">
+                    <h3 className="text-sm tracking-widest uppercase font-semibold text-white leading-relaxed opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[350ms] group-hover:ease-out group-hover:delay-[150ms] will-change-[opacity,transform]">
+                      {opp.title}
+                    </h3>
+                    
+                    <p className="mt-4 text-white/90 text-sm opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[350ms] group-hover:ease-out group-hover:delay-[250ms] will-change-[opacity,transform]">
+                      {opp.desc}
+                    </p>
+                    
+                    <ul className="mt-6 space-y-3">
+                      {opp.bullets.map((b, j) => {
+                        const delays = ['group-hover:delay-[330ms]', 'group-hover:delay-[410ms]', 'group-hover:delay-[490ms]'];
+                        return (
+                          <li key={j} className={`flex items-center gap-3 text-white text-sm opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[300ms] group-hover:ease-out ${delays[j]} will-change-[opacity,transform]`}>
+                            <div className="w-1.5 h-1.5 bg-white rounded-full shrink-0"></div>
+                            {b}
+                          </li>
+                        );
+                      })}
+                    </ul>
+
+                    <div className="mt-auto flex items-center gap-2 text-white text-xs font-bold tracking-widest uppercase opacity-0 transition-opacity duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:duration-[300ms] group-hover:delay-[400ms] will-change-[opacity]">
+                      EXPLORE <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute bottom-0 left-0 w-full bg-[#FF4D2E] z-20 h-0 transition-[height] duration-[350ms] ease-in group-hover:h-full group-hover:duration-[450ms] group-hover:ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[height]"></div>
-
-                <div className="absolute inset-0 p-8 flex flex-col z-30 pointer-events-none">
-                  <h3 className="text-sm tracking-widest uppercase font-semibold text-white leading-relaxed opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[350ms] group-hover:ease-out group-hover:delay-[150ms] will-change-[opacity,transform]">
-                    {opp.title}
-                  </h3>
-                  
-                  <p className="mt-4 text-white/90 text-sm opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[350ms] group-hover:ease-out group-hover:delay-[250ms] will-change-[opacity,transform]">
-                    {opp.desc}
-                  </p>
-                  
-                  <ul className="mt-6 space-y-3">
-                    {opp.bullets.map((b, j) => {
-                      const delays = ['group-hover:delay-[330ms]', 'group-hover:delay-[410ms]', 'group-hover:delay-[490ms]'];
-                      return (
-                        <li key={j} className={`flex items-center gap-3 text-white text-sm opacity-0 translate-y-[8px] transition-all duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-[300ms] group-hover:ease-out ${delays[j]} will-change-[opacity,transform]`}>
-                          <div className="w-1.5 h-1.5 bg-white rounded-full shrink-0"></div>
-                          {b}
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  <div className="mt-auto flex items-center gap-2 text-white text-xs font-bold tracking-widest uppercase opacity-0 transition-opacity duration-[200ms] ease-in delay-0 group-hover:opacity-100 group-hover:duration-[300ms] group-hover:delay-[400ms] will-change-[opacity]">
-                    EXPLORE <ArrowUpRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </div>
+              </RiseCard>
             ))}
           </div>
         </>
@@ -313,24 +319,26 @@ export const Home = () => {
     },
     {
       id: 'straton-way',
-      className: 'bg-[#F3F3F3] text-[#111111] p-12 md:p-20',
+      className: 'relative bg-[#F3F3F3] text-[#111111] p-12 md:p-20 overflow-hidden',
       content: (
         <>
-          <div className="mb-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-[38px]">
+          {/* Using an inverted grid for light background */}
+          <div className="absolute inset-0 bg-reference-grid z-0 pointer-events-none opacity-20 invert"></div>
+          <div className="mb-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-[38px] relative z-10">
             <div className="max-w-3xl">
               <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-8 text-[#6E6E6E]">THE STRATON WAY</h3>
-              <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium tracking-tight leading-[1.1]">
+              <BlurHeading className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium tracking-tight leading-[1.1]">
                 We use AI with purpose.<br />
                 We start with the end goal: business impact.
-              </h2>
+              </BlurHeading>
             </div>
             <p className="text-sm md:text-base max-w-[280px] text-right font-medium leading-relaxed">
               Every solution we build is designed to understand your business, anticipate challenges, and deliver business impact.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-[22.8px] mb-12">
-            <div className="lg:col-span-8 relative rounded-[20px] overflow-hidden group h-[480px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-[22.8px] mb-12 relative z-10">
+            <RiseCard className="lg:col-span-8 relative rounded-[20px] overflow-hidden group h-[480px]">
               <img 
                 src={stratonCards[currentSlide].image} 
                 alt={stratonCards[currentSlide].title} 
@@ -346,9 +354,9 @@ export const Home = () => {
                   {stratonCards[currentSlide].desc}
                 </p>
               </div>
-            </div>
+            </RiseCard>
             
-            <div className="lg:col-span-4 relative rounded-[20px] overflow-hidden group h-[480px]">
+            <RiseCard delay={0.2} className="lg:col-span-4 relative rounded-[20px] overflow-hidden group h-[480px]">
               <img 
                 src={stratonCards[(currentSlide + 1) % stratonCards.length].image} 
                 alt={stratonCards[(currentSlide + 1) % stratonCards.length].title} 
@@ -364,10 +372,10 @@ export const Home = () => {
                   {stratonCards[(currentSlide + 1) % stratonCards.length].desc}
                 </p>
               </div>
-            </div>
+            </RiseCard>
           </div>
           
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center relative z-10">
             <div className="flex gap-[9.5px]">
               {stratonCards.map((_, idx) => (
                 <div key={idx} className={`w-3.5 h-3.5 transition-colors ${idx === currentSlide ? 'bg-brand-orange' : 'bg-[#111111]'}`}></div>
@@ -402,11 +410,11 @@ export const Home = () => {
             <div className="absolute bottom-0 left-0 w-6 h-6 border-b-[1.5px] border-l-[1.5px] border-brand-orange"></div>
             <div className="absolute bottom-0 right-0 w-6 h-6 border-b-[1.5px] border-r-[1.5px] border-brand-orange"></div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-medium text-brand-orange leading-[1.15] tracking-tight">
+            <ScrollFillText className="text-4xl md:text-5xl lg:text-[4rem] font-medium leading-[1.15] tracking-tight">
               AI is only valuable when it solves<br />
               the right business problems<br />
               and adds measurable value.
-            </h2>
+            </ScrollFillText>
           </div>
         </>
       )

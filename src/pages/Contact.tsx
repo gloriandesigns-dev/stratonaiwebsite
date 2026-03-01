@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Mail, Phone } from 'lucide-react';
 import { CTASectionContent } from '../components/CTASection';
 import { FrameContainer, FrameData } from '../components/FrameContainer';
+import { BlurHeading } from '../components/AnimatedComponents';
 
 export const Contact = () => {
   const frames: FrameData[] = [
@@ -11,9 +12,9 @@ export const Contact = () => {
       content: (
         <>
           <div className="w-full lg:w-1/2 p-12 md:p-20 flex flex-col">
-            <h1 className="text-4xl md:text-5xl font-medium text-[#111111] tracking-tight mb-16">
+            <BlurHeading as="h1" className="text-4xl md:text-5xl font-medium text-[#111111] tracking-tight mb-16">
               Contact Us
-            </h1>
+            </BlurHeading>
             <form className="flex flex-col gap-[45.6px] flex-1">
               <div className="relative">
                 <label className="block text-[10px] font-bold tracking-widest uppercase text-[#111111] mb-4">
