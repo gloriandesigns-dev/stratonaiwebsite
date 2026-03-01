@@ -1,1 +1,1 @@
-# stratonaiwebsite
+# straton-ai-website
